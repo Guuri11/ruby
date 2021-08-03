@@ -1,9 +1,58 @@
-puts "Calculator App..."
+def getNumber(idx)
+    puts "Number "+idx.to_s+":"
+    return gets.chomp().to_i
+end
 
-puts "Enter a number:"
-n1 = gets.chomp()
+def getOperation
+    
+    puts "Which operation do you want to choose?"
+    puts "\t 1) + "
+    puts "\t 2) - "
+    puts "\t 3) * "
+    puts "\t 4) / "
 
-puts "Enter a second number:"
-n2 = gets.chomp()
+    operation = nil
 
-puts "Your result is : " + (n1.to_f+n2.to_f).to_s
+    loop do
+        operation = gets.chomp()
+        if operation =~ /\A[-+]?[0-9]+\z/
+            break
+        end
+    end
+
+    return operation.to_i
+
+end
+
+def main
+    puts "Welcome to Calculator App"
+
+    numberOne = getNumber(1)
+    operation = getOperation()
+    numberTwo = getNumber(2)
+
+    result = nil
+    error = false
+
+
+    if operation == 1
+        result = numberOne + numberTwo
+    elsif operation == 2
+        result = numberOne - numberTwo
+    elsif operation == 3
+        result = numberOne * numberTwo
+    elsif operation == 4
+        result = numberOne / numberTwo
+    else
+        error = true
+    end
+
+    if !error
+        puts "Your result: " + result.to_s
+    else
+        puts "Theres a bug :O"
+    end
+
+end
+
+main
