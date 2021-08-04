@@ -34,14 +34,14 @@ def main
     result = nil
     error = false
 
-
-    if operation == 1
+    case operation
+    when operation == 1
         result = numberOne + numberTwo
-    elsif operation == 2
+    when operation == 2
         result = numberOne - numberTwo
-    elsif operation == 3
+    when operation == 3
         result = numberOne * numberTwo
-    elsif operation == 4
+    when operation == 4
         result = numberOne / numberTwo
     else
         error = true
